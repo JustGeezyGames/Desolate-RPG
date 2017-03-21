@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Fixed update is called in sync with physics
-    private void FixedUpdate()
+    /*private void FixedUpdate()
     {
         if (Input.GetKeyDown(KeyCode.G))
         {
@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
         {
             ProcessMouseMovement();
         }
-    }
+    }*/
 
     private void ProcessDirectMovement()
     {
@@ -66,27 +66,27 @@ public class PlayerMovement : MonoBehaviour
         thirdPersonCharacter.Move(movement, false, false);
     }
 
-    private void ProcessMouseMovement()
-    {
-        if (Input.GetMouseButton(0))
-        {
-            clickPoint = cameraRaycaster.hit.point;
-            switch (cameraRaycaster.currentLayerHit)
-            {
-                case Layer.Walkable:
-                    currentDestination = ShortDestination(clickPoint, walkMoveStopRadius);
-                    break;
-                case Layer.Enemy:
-                    currentDestination = ShortDestination(clickPoint, attackStopRadius);
-                    break;
-                default:
-                    print("Shouldn't be here");
-                    return;
-            }
-        }
+    //private void ProcessMouseMovement()
+    //{
+    //    if (Input.GetMouseButton(0))
+    //    {
+    //        clickPoint = cameraRaycaster.hit.point;
+    //        switch (cameraRaycaster.currentLayerHit)
+    //        {
+    //            case Layer.Walkable:
+    //                currentDestination = ShortDestination(clickPoint, walkMoveStopRadius);
+    //                break;
+    //            case Layer.Enemy:
+    //                currentDestination = ShortDestination(clickPoint, attackStopRadius);
+    //                break;
+    //            default:
+    //                print("Shouldn't be here");
+    //                return;
+    //        }
+    //    }
 
-        WalkToDestination();
-    }
+    //    WalkToDestination();
+    //}
 
     private void WalkToDestination()
     {
